@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="7ee4110c-ff98-40fa-8b0e-e668da17eeae" ChangeDateTime="12/29/2020 01:40:26">
+    <Property Name="ElementName" Value="[dbo].[Events].[User Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="75968a81-969e-457a-a3e4-c7d08e758b75" ChangeDateTime="12/29/2020 01:40:34">
+    <Property Name="ElementName" Value="[dbo].[Events].[UserId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="58212e2e-30ec-4e8c-965a-14a4e02a7c5d" ChangeDateTime="12/29/2020 01:40:36">
+    <Property Name="ElementName" Value="[dbo].[Events].[UserID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="149fd162-7225-416d-8e9c-4591929b4c51" ChangeDateTime="12/29/2020 01:40:54">
+    <Property Name="ElementName" Value="[dbo].[Events].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EventId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="89bd096d-ec3c-4740-bac8-ce4adf67681a" ChangeDateTime="12/29/2020 01:41:17">
+    <Property Name="ElementName" Value="[dbo].[Events].[Start]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2fd3ab69-d374-483d-90c0-2160f8b02a59" ChangeDateTime="12/29/2020 01:42:40">
+    <Property Name="ElementName" Value="[dbo].[Events].[C]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CreationDatetime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f25cd290-53fa-497a-9513-bd300493e5fa" ChangeDateTime="12/29/2020 01:44:34">
+    <Property Name="ElementName" Value="[dbo].[Events].[StartDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDatetime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1e5e1001-bd1a-4596-83b4-885c1bbe1d24" ChangeDateTime="12/29/2020 01:44:43">
+    <Property Name="ElementName" Value="[dbo].[Events].[EndDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Events]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EndDatetime" />
+  </Operation>
+</Operations>

@@ -11,7 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAccess;
 using Web.Data;
+using IConnectionFactory = Microsoft.AspNetCore.Connections.IConnectionFactory;
 
 namespace Web
 {
@@ -33,6 +35,9 @@ namespace Web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddTransient<DataAccess.IConnectionFactory, ConnectionFactory>();
+            services.AddTransient<IRepository, Repository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
