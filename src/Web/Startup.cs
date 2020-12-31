@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess;
+using Service;
 using Web.Data;
 using IConnectionFactory = Microsoft.AspNetCore.Connections.IConnectionFactory;
 
@@ -37,7 +38,7 @@ namespace Web
             services.AddRazorPages();
             services.AddTransient<DataAccess.IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IRepository, Repository>();
-
+            services.AddTransient<Service.IService, Service.Service>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
