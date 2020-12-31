@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Models;
 
-namespace DataAccess
+namespace Service
 {
-    public interface IRepository
+    public interface IService
     {
-        Task<List<Event>> GetEvents(string userId);
+        Task<List<Event>> GetEvents(string userId, DateTimeOffset date);
         Task CreateEvent(Event newEvent);
         Task UpdateEvent(Event newEvent);
     }
