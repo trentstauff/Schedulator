@@ -7,5 +7,16 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div id='calendar'/>
+    <button onclick=""></button>
+    <div id='calendar' />
 </div>
+<script>
+    const doStuff = function () {
+        console.log("hello");
+        var calendar = document.getElementById('calendar').calendar;
+        calendar.addEvent({
+            title: 'event 2',
+            start: '2020-12-31'
+        });
+    };
+</script>
