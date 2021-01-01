@@ -3,13 +3,15 @@
 
 // Write your Javascript code.
 
-document.addEventListener('DOMContentLoaded', function () {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        //initialView: 'resourceTimelineWeek',
-        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-    });
+var renderCalendar = function (events) {
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+            events: events
+        });
 
-    calendarEl.calendar = calendar;
-    calendar.render();
-});
+        calendarEl.calendar = calendar;
+        calendar.render();
+    });
+};

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Models;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +13,19 @@ namespace Web.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly IService _service;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public List<Event> Events; 
+
+        public IndexModel(ILogger<IndexModel> logger, IService service)
         {
             _logger = logger;
+            _service = service;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-
+            Events = await _service.GetEvents("1");
         }
     }
 }
