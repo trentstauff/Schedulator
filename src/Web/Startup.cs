@@ -36,6 +36,7 @@ namespace Web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddServerSideBlazor();
             services.AddTransient<DataAccess.IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IRepository, Repository>();
             services.AddTransient<Service.IService, Service.Service>();
@@ -67,6 +68,7 @@ namespace Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
             });
         }
     }

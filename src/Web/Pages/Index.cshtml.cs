@@ -14,8 +14,7 @@ namespace Web.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly IService _service;
-
-        public List<Event> Events; 
+        public List<Event> Events { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, IService service)
         {

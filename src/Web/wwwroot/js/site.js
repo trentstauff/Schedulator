@@ -8,10 +8,17 @@ var renderCalendar = function (events) {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-            events: events
+            events: events,
+            eventClick: eventOnClick
         });
 
         calendarEl.calendar = calendar;
         calendar.render();
     });
 };
+
+var eventOnClick = function() {
+    
+    $('#fullCalModal').modal();
+    return false;
+}
