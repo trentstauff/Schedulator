@@ -16,7 +16,7 @@ namespace Service
             _repository = repository;
         }
 
-        public async Task<List<Event>> GetEvents(string userId, DateTimeOffset date)
+        public async Task<List<Event>> GetEvents(string userId)
         {
             return await _repository.GetEvents(userId);
         }

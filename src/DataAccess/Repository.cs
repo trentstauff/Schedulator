@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
@@ -18,27 +19,29 @@ namespace DataAccess
 
         public async Task<List<Event>> GetEvents(string userId)
         {
-            var sql = @"SELECT [EventId]
-                              ,[UserId]
-                              ,[StartDatetime]
-                              ,[EndDatetime]
-                              ,[Title]
-                              ,[Description]
-                              ,[Reminder]
-                              ,[Priority]
-                              ,[TimeRequired]
-                              ,[Difficulty]
-                              ,[CreationDatetime]
-                              ,[ModificationDatetime]
-                       FROM [schedulator].[dbo].[Events]
-                       WHERE UserId = @UserId";
+            //var sql = @"SELECT [EventId]
+            //                  ,[UserId]
+            //                  ,[StartDatetime]
+            //                  ,[EndDatetime]
+            //                  ,[Title]
+            //                  ,[Description]
+            //                  ,[Reminder]
+            //                  ,[Priority]
+            //                  ,[TimeRequired]
+            //                  ,[Difficulty]
+            //                  ,[CreationDatetime]
+            //                  ,[ModificationDatetime]
+            //           FROM [schedulator].[dbo].[Events]
+            //           WHERE UserId = @UserId";
 
-            var parameters = new DynamicParameters();
-            parameters.Add("@UserId", userId);
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@UserId", userId);
 
-            var results = await _connectionFactory.CreateSchedulatorDbConnection().QueryAsync<Event>(sql, parameters);
+            //var results = await _connectionFactory.CreateSchedulatorDbConnection().QueryAsync<Event>(sql, parameters);
 
-            return results.ToList();
+            //return results.ToList();
+
+            return new List<Event> { new Event { Title = "Val tournament", StartDatetime = DateTimeOffset.Now, EndDatetime = DateTimeOffset.Now.AddDays(1) } };
         }
 
         public async Task CreateEvent(Event newEvent)

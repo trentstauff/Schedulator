@@ -2,3 +2,23 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
+var renderCalendar = function (events) {
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+            events: events,
+            eventClick: eventOnClick
+        });
+
+        calendarEl.calendar = calendar;
+        calendar.render();
+    });
+};
+
+var eventOnClick = function() {
+    
+    $('#fullCalModal').modal();
+    return false;
+}

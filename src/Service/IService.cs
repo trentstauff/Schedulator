@@ -7,7 +7,7 @@ namespace Service
 {
     public interface IService
     {
-        Task<List<Event>> GetEvents(string userId, DateTimeOffset date);
+        Task<List<Event>> GetEvents(string userId);
         Task CreateEvent(Event newEvent);
         Task UpdateEvent(Event newEvent);
     }
