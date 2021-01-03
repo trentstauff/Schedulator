@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "src\Models\Models
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "src\Database\Database.sqlproj", "{7173E2F8-D779-412E-A1CF-5ACBDCF39567}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "src\Web\Web.csproj", "{4E31D61D-97F9-4042-903F-066CD09D1CA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{7173E2F8-D779-412E-A1CF-5ACBDCF39567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7173E2F8-D779-412E-A1CF-5ACBDCF39567}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7173E2F8-D779-412E-A1CF-5ACBDCF39567}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4E31D61D-97F9-4042-903F-066CD09D1CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E31D61D-97F9-4042-903F-066CD09D1CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E31D61D-97F9-4042-903F-066CD09D1CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E31D61D-97F9-4042-903F-066CD09D1CA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
