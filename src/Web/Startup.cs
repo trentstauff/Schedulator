@@ -1,3 +1,4 @@
+using DataAccess;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,10 @@ namespace Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddTransient<IConnectionFactory, ConnectionFactory>();
+            services.AddTransient<IRepository, Repository>();
+            services.AddTransient<Service.IService, Service.Service>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
