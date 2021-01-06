@@ -15,4 +15,3 @@
     CONSTRAINT [FK_Events_AspNetUsers] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id])
 );
 
-
