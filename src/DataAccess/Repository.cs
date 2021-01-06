@@ -19,57 +19,59 @@ namespace DataAccess
 
         public async Task<List<Event>> GetEvents(string userId)
         {
-            //var sql = @"SELECT [EventId]
-            //                  ,[UserId]
-            //                  ,[StartDatetime]
-            //                  ,[EndDatetime]
-            //                  ,[Title]
-            //                  ,[Description]
-            //                  ,[Reminder]
-            //                  ,[Priority]
-            //                  ,[TimeRequired]
-            //                  ,[Difficulty]
-            //                  ,[CreationDatetime]
-            //                  ,[ModificationDatetime]
-            //           FROM [schedulator].[dbo].[Events]
-            //           WHERE UserId = @UserId";
+            var sql = @"SELECT [EventId]
+                              ,[UserId]
+                              ,[StartDatetime]
+                              ,[EndDatetime]
+                              ,[Title]
+                              ,[Description]
+                              ,[Reminder]
+                              ,[Priority]
+                              ,[TimeRequired]
+                              ,[Difficulty]
+                              ,[CreationDatetime]
+                              ,[ModificationDatetime]
+                       FROM [schedulator].[dbo].[Events]
+                       WHERE UserId = @UserId;";
 
-            //var parameters = new DynamicParameters();
-            //parameters.Add("@UserId", userId);
+            var parameters = new DynamicParameters();
+            parameters.Add("@UserId", userId);
 
-            //var results = await _connectionFactory.CreateSchedulatorDbConnection().QueryAsync<Event>(sql, parameters);
+            var results = await _connectionFactory.CreateSchedulatorDbConnection().QueryAsync<Event>(sql, parameters);
 
-            //return results.ToList();
-
-            return new List<Event> { new Event { Title = "Val tournament", StartDatetime = DateTimeOffset.Now, EndDatetime = DateTimeOffset.Now.AddDays(1) } };
+            return results.ToList();
         }
 
         public async Task CreateEvent(Event newEvent)
         {
             var sql = @"INSERT INTO [schedulator].[dbo].[Events]
-                                   ([UserId]
-                                   ,[StartDatetime]
-                                   ,[EndDatetime]
-                                   ,[Title]
-                                   ,[Description]
-                                   ,[Reminder]
-                                   ,[Priority]
-                                   ,[TimeRequired]
-                                   ,[Difficulty]
-                                   ,[CreationDatetime]
-                                   ,[ModificationDatetime])
-                             VALUES
-                                   (@UserId
-                                   ,@StartDatetime
-                                   ,@EndDatetime
-                                   ,@Title
-                                   ,@Description
-                                   ,@Reminder
-                                   ,@Priority
-                                   ,@TimeRequired
-                                   ,@Difficulty
-                                   ,@CreationDatetime
-                                   ,@ModificationDatetime)";
+                        (
+                            [UserId]
+                           ,[StartDatetime]
+                           ,[EndDatetime]
+                           ,[Title]
+                           ,[Description]
+                           ,[Reminder]
+                           ,[Priority]
+                           ,[TimeRequired]
+                           ,[Difficulty]
+                           ,[CreationDatetime]
+                           ,[ModificationDatetime]
+                        )
+                        VALUES
+                        (
+                            @UserId
+                           ,@StartDatetime
+                           ,@EndDatetime
+                           ,@Title
+                           ,@Description
+                           ,@Reminder
+                           ,@Priority
+                           ,@TimeRequired
+                           ,@Difficulty
+                           ,@CreationDatetime
+                           ,@ModificationDatetime
+                        );";
 
             var parameters = new DynamicParameters();
             parameters.Add("@UserId", newEvent.UserId);
@@ -90,18 +92,18 @@ namespace DataAccess
         public async Task UpdateEvent(Event newEvent)
         {
             var sql = @"UPDATE [schedulator].[dbo].[Events]
-                           SET [UserId] = @UserId
-                              ,[StartDatetime] = @StartDatetime
-                              ,[EndDatetime] = @EndDatetime
-                              ,[Title] = @Title
-                              ,[Description] = @Description
-                              ,[Reminder] = @Reminder
-                              ,[Priority] = @Priority
-                              ,[TimeRequired] = @TimeRequired
-                              ,[Difficulty] = @Difficulty
-                              ,[CreationDatetime] = @CreationDatetime
-                              ,[ModificationDatetime] = @ModificationDatetime
-                         WHERE EventId = @EventId";
+                        SET [UserId] = @UserId
+                           ,[StartDatetime] = @StartDatetime
+                           ,[EndDatetime] = @EndDatetime
+                           ,[Title] = @Title
+                           ,[Description] = @Description
+                           ,[Reminder] = @Reminder
+                           ,[Priority] = @Priority
+                           ,[TimeRequired] = @TimeRequired
+                           ,[Difficulty] = @Difficulty
+                           ,[CreationDatetime] = @CreationDatetime
+                           ,[ModificationDatetime] = @ModificationDatetime
+                        WHERE EventId = @EventId;";
 
             var parameters = new DynamicParameters();
             parameters.Add("@EventId", newEvent.EventId);
