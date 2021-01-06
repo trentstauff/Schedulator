@@ -43,6 +43,7 @@ namespace Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSwaggerDocument();
 
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IRepository, Repository>();
@@ -79,6 +80,10 @@ namespace Web
             app.UseAuthentication();
             app.UseIdentityServer();
             app.UseAuthorization();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
