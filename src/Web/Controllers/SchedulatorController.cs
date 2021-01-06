@@ -22,7 +22,8 @@ namespace Web.Controllers
         [HttpGet("events")]
         public async Task<ActionResult<List<Event>>> GetEvents()
         {
-            return await _service.GetEvents("3");
+            // Todo: Get the user id and pass it in
+            return await _service.GetEvents("4eaa6fd9-76a8-4b82-8023-c9a7b4369264");
         }
     }
 }

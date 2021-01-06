@@ -9,14 +9,6 @@ export class Home extends Component {
     return (
       <div>
         <h1>Hello, world!</h1>
-        <FullCalendar
-          plugins={[dayGridPlugin]}
-          initialView="dayGridMonth"
-          initialEvents={[
-            { title: "event 1", date: "2021-01-01" },
-            { title: "event 2", date: "2021-04-02" },
-          ]}
-        />
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
           <li>
