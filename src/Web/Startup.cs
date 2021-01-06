@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using Web.Data;
 using Web.Models;
 
@@ -29,7 +30,7 @@ namespace Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    $"Server=13.92.138.113;Database=schedulator;User Id=sa;Password={Environment.GetEnvironmentVariable("schedulatorpassword")};Trusted_Connection=False;MultipleActiveResultSets=true"));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
