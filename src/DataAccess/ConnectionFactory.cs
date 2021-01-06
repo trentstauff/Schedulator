@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataAccess
@@ -7,7 +8,7 @@ namespace DataAccess
     {
         public IDbConnection CreateSchedulatorDbConnection()
         {
-            var connectionBuilder = new SqlConnectionStringBuilder{UserID = "sa", Password = "Password123!", DataSource = "localhost"};
+            var connectionBuilder = new SqlConnectionStringBuilder{UserID = "sa", Password = Environment.GetEnvironmentVariable("schedulatorpassword"), DataSource = "13.92.138.113" };
             return new SqlConnection(connectionBuilder.ConnectionString);
         }
     }
