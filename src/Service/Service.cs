@@ -23,11 +23,15 @@ namespace Service
 
         public async Task CreateEvent(Event newEvent)
         {
+            // todo: call a helper function to get a list of generated events
+            // loop over each generated event and send them to the database
             await _repository.CreateEvent(newEvent);
         }
 
         public async Task UpdateEvent(Event newEvent)
         {
+            // todo: call a helper function to get a list of generated events
+            // loop over each generated event and send them to the database
             await _repository.UpdateEvent(newEvent);
         }
     }
