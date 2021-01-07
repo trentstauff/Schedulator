@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import EventView from "./EventView";
+
+import "./CalendarPage.css";
 
 const mapEvents = (events) => {
   return events.map((e) => ({
@@ -25,12 +28,21 @@ const CalendarPage = () => {
   }, []);
 
   return events ? (
-    <FullCalendar
-      ref={calRef}
-      plugins={[dayGridPlugin]}
-      initialView="dayGridMonth"
-      initialEvents={mapEvents(events)}
-    />
+    <div className="container">
+      <div className="row">
+        <div className="col-3">
+          <EventView event={events[0]} />
+        </div>
+        <div className="calendar-view col-9 p-4">
+          <FullCalendar
+            ref={calRef}
+            plugins={[dayGridPlugin]}
+            initialView="dayGridMonth"
+            initialEvents={mapEvents(events)}
+          />
+        </div>
+      </div>
+    </div>
   ) : (
     <div>Loading Moem</div>
   );
