@@ -15,6 +15,12 @@ const mapEvents = (events) => {
   }));
 };
 
+const getUpcomingEvent = (events) => {
+  return events
+    .sort((a, b) => Date.parse(a.startDatetime) - Date.parse(b.startDatetime)) // sorts startdate ascendingly
+    .find((event) => Date.parse(event.endDatetime) >= Date.now());
+};
+
 const CalendarPage = () => {
   const [events, setEvents] = useState();
   const calRef = useRef();
@@ -35,7 +41,7 @@ const CalendarPage = () => {
     <div className="container">
       <div className="row">
         <div className="col-3">
-          <EventView event={events[0]} />
+          <EventView event={getUpcomingEvent(events)} />
         </div>
         <div className="calendar-view col-9 p-4">
           <FullCalendar
