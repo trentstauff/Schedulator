@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using IdentityServer4.Validation;
+using NSwag;
 using Web.Data;
 using Web.Models;
 
@@ -43,7 +45,21 @@ namespace Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddSwaggerDocument();
+            services.AddSwaggerDocument(settings =>
+            {
+
+                settings.AddSecurity("Bearer", new OpenApiSecurityScheme
+                {
+
+                    Name = "Authorization",
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Description = ""
+                });
+
+            });
 
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IRepository, Repository>();

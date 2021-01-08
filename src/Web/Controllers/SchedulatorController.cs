@@ -30,5 +30,14 @@ namespace Web.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return await _service.GetEvents(userId);
         }
+
+        [HttpPost("events")]
+        public async Task<ActionResult<Event>> CreateEvent(Event passedEvent)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            
+            await _service.CreateEvent(passedEvent);
+            return passedEvent;
+        }
     }
 }

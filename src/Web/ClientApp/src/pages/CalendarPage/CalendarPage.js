@@ -28,6 +28,7 @@ const CalendarPage = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       const token = await authService.getAccessToken();
+      console.log(token);
       const response = await Axios.get("api/events", {
         headers: !token ? {} : { Authorization: `Bearer ${token}` },
       });
