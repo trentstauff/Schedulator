@@ -5,9 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Service;
 using Models;
+using Microsoft.AspNetCore.Identity;
+using Web.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api")]
     public class SchedulatorController : Controller
@@ -22,8 +27,8 @@ namespace Web.Controllers
         [HttpGet("events")]
         public async Task<ActionResult<List<Event>>> GetEvents()
         {
-            // Todo: Get the user id and pass it in
-            return await _service.GetEvents("4eaa6fd9-76a8-4b82-8023-c9a7b4369264");
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return await _service.GetEvents(userId);
         }
     }
 }
