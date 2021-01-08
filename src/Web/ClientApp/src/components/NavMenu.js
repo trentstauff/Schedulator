@@ -58,11 +58,6 @@ export class NavMenu extends Component {
                     Calendar
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">
-                    Counter
-                  </NavLink>
-                </NavItem>
                 <LoginMenu></LoginMenu>
               </ul>
             </Collapse>
