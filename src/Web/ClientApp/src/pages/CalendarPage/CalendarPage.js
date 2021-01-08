@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
+import authService from "../api-authorization/AuthorizeService";
 import Axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import EventView from "./EventView";
+import EventView from "../EventView";
 
 import "./CalendarPage.css";
 
@@ -20,7 +21,10 @@ const CalendarPage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const response = await Axios.get("api/events");
+      const token = await authService.getAccessToken();
+      const response = await Axios.get("api/events", {
+        headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      });
       setEvents(response.data);
     };
 

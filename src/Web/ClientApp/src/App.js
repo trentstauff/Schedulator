@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Route } from "react-router";
-import { Layout } from "./components/Layout";
-import { Home } from "./components/Home";
+import { Layout } from "./Layout";
+import { Home } from "./pages/HomePage/HomePage";
 import AuthorizeRoute from "./components/api-authorization/AuthorizeRoute";
 import ApiAuthorizationRoutes from "./components/api-authorization/ApiAuthorizationRoutes";
 import { ApplicationPaths } from "./components/api-authorization/ApiAuthorizationConstants";
-import CalendarPage from "./components/CalendarPage";
+import CalendarPage from "./components/pages/CalendarPage";
 
 import "./custom.css";
 
