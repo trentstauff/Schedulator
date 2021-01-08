@@ -63,11 +63,6 @@ export class NavMenu extends Component {
                     Counter
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">
-                    Fetch data
-                  </NavLink>
-                </NavItem>
                 <LoginMenu></LoginMenu>
               </ul>
             </Collapse>
