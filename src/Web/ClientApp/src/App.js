@@ -18,7 +18,6 @@ export default class App extends Component {
       <Layout>
         <Route exact path="/" component={Home} />
         <AuthorizeRoute exact path="/calendar" component={CalendarPage} />
-        <Route path="/counter" component={Counter} />
         <Route
           path={ApplicationPaths.ApiAuthorizationPrefix}
           component={ApiAuthorizationRoutes}
