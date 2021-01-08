@@ -5,9 +5,9 @@ import { Home } from "./pages/HomePage/HomePage";
 import AuthorizeRoute from "./components/api-authorization/AuthorizeRoute";
 import ApiAuthorizationRoutes from "./components/api-authorization/ApiAuthorizationRoutes";
 import { ApplicationPaths } from "./components/api-authorization/ApiAuthorizationConstants";
-import CalendarPage from "./components/pages/CalendarPage";
+import CalendarPage from "./pages/CalendarPage";
 
-import "./custom.css";
+import "./App.css";
 
 export default class App extends Component {
   static displayName = App.name;

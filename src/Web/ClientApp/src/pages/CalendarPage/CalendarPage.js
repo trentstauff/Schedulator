@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import authService from "../api-authorization/AuthorizeService";
+import authService from "../../components/api-authorization/AuthorizeService";
 import Axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import EventView from "../EventView";
+import EventView from "../../components/EventView";
 
 import "./CalendarPage.css";
 

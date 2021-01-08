@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
 
-import "./Home.css";
+import "./HomePage.css";
 
 export class Home extends Component {
   static displayName = Home.name;
