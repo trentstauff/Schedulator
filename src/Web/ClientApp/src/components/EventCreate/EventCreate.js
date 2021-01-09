@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventCreate = ({ event }) => {
+const EventCreate = () => {
   return <div>Create</div>;
 };
 

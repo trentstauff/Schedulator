@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import "./EventContainer.css";
 import EventView from "../EventView/EventView.js";
 import EventCreate from "../EventCreate/EventCreate.js";
@@ -19,20 +20,27 @@ const EventContainer = ({ event }) => {
       componentToRender = <EventView event={event}></EventView>;
       break;
     case CREATE:
-      componentToRender = <EventCreate event={event}></EventCreate>;
+      componentToRender = <EventCreate></EventCreate>;
       break;
     case EDIT:
       componentToRender = <EventEdit event={event}></EventEdit>;
       break;
     default:
+      componentToRender = <div>Empty</div>;
       break;
   }
 
   return (
     <div className="event-container text-center">
       {componentToRender}
-      <button>Create</button>
-      <button>Edit</button>
+      {containerState === VIEW || containerState === EMPTY ? (
+        <>
+          <Button onClick={() => setContainerState(CREATE)}>Create</Button>
+          <Button onClick={() => setContainerState(EDIT)}>Edit</Button>
+        </>
+      ) : (
+        <Button onClick={() => setContainerState(VIEW)}>Go Back</Button>
+      )}
     </div>
   );
 };
