@@ -12,7 +12,6 @@ const EMPTY = 4;
 
 const EventContainer = ({ event }) => {
   const [containerState, setContainerState] = useState(event ? VIEW : EMPTY);
-
   let componentToRender;
 
   switch (containerState) {

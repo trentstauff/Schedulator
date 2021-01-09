@@ -48,7 +48,7 @@ namespace Web.Controllers
             passedEvent.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             passedEvent.ModificationDatetime = DateTimeOffset.Now;
 
-            await _service.CreateEvent(passedEvent);
+            await _service.UpdateEvent(passedEvent);
             return passedEvent;
         }
     }
