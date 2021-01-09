@@ -2,19 +2,16 @@ using DataAccess;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using IdentityServer4.Validation;
 using NSwag;
 using Web.Data;
 using Web.Models;
+using NSwag.Generation.Processors.Security;
 
 namespace Web
 {
@@ -47,18 +44,17 @@ namespace Web
             services.AddRazorPages();
             services.AddSwaggerDocument(settings =>
             {
-
                 settings.AddSecurity("Bearer", new OpenApiSecurityScheme
                 {
-
                     Name = "Authorization",
                     Type = OpenApiSecuritySchemeType.ApiKey,
                     Scheme = "Bearer",
-                    BearerFormat = "",
+                    BearerFormat = "JWT",
                     In = OpenApiSecurityApiKeyLocation.Header,
                     Description = ""
                 });
-
+                settings.OperationProcessors.Add(
+                    new AspNetCoreOperationSecurityScopeProcessor("Bearer"));
             });
 
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
