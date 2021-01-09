@@ -3,7 +3,7 @@ import authService from "../../components/api-authorization/AuthorizeService";
 import Axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import EventView from "../../components/EventView";
+import EventContainer from "../../components/EventContainer/EventContainer.js";
 
 import "./CalendarPage.css";
 
@@ -42,7 +42,7 @@ const CalendarPage = () => {
     <div className="container">
       <div className="row">
         <div className="col-3">
-          <EventView event={getUpcomingEvent(events)} />
+          <EventContainer event={getUpcomingEvent(events)} />
         </div>
         <div className="calendar-view col-9 p-4">
           <FullCalendar
