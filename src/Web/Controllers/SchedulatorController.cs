@@ -34,7 +34,9 @@ namespace Web.Controllers
         [HttpPost("events")]
         public async Task<ActionResult<Event>> CreateEvent(Event passedEvent)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            passedEvent.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            passedEvent.CreationDatetime = DateTimeOffset.Now;
+            passedEvent.ModificationDatetime = passedEvent.CreationDatetime;
             
             await _service.CreateEvent(passedEvent);
             return passedEvent;
