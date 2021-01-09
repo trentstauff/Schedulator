@@ -92,8 +92,7 @@ namespace DataAccess
         public async Task UpdateEvent(Event newEvent)
         {
             var sql = @"UPDATE [schedulator].[dbo].[Events]
-                        SET [UserId] = @UserId
-                           ,[StartDatetime] = @StartDatetime
+                        SET [StartDatetime] = @StartDatetime
                            ,[EndDatetime] = @EndDatetime
                            ,[Title] = @Title
                            ,[Description] = @Description
@@ -101,13 +100,11 @@ namespace DataAccess
                            ,[Priority] = @Priority
                            ,[TimeRequired] = @TimeRequired
                            ,[Difficulty] = @Difficulty
-                           ,[CreationDatetime] = @CreationDatetime
                            ,[ModificationDatetime] = @ModificationDatetime
                         WHERE EventId = @EventId;";
 
             var parameters = new DynamicParameters();
             parameters.Add("@EventId", newEvent.EventId);
-            parameters.Add("@UserId", newEvent.UserId);
             parameters.Add("@StartDatetime", newEvent.StartDatetime);
             parameters.Add("@EndDatetime", newEvent.EndDatetime);
             parameters.Add("@Title", newEvent.Title);
@@ -116,7 +113,6 @@ namespace DataAccess
             parameters.Add("@Priority", newEvent.Priority);
             parameters.Add("@TimeRequired", newEvent.TimeRequired);
             parameters.Add("@Difficulty", newEvent.Difficulty);
-            parameters.Add("@CreationDatetime", newEvent.CreationDatetime);
             parameters.Add("@ModificationDatetime", newEvent.ModificationDatetime);
 
             await _connectionFactory.CreateSchedulatorDbConnection().ExecuteAsync(sql, parameters);

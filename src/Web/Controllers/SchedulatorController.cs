@@ -41,5 +41,15 @@ namespace Web.Controllers
             await _service.CreateEvent(passedEvent);
             return passedEvent;
         }
+
+        [HttpPut("events")]
+        public async Task<ActionResult<Event>> UpdateEvent(Event passedEvent)
+        {
+            passedEvent.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            passedEvent.ModificationDatetime = DateTimeOffset.Now;
+
+            await _service.CreateEvent(passedEvent);
+            return passedEvent;
+        }
     }
 }
