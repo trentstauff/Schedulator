@@ -1,7 +1,7 @@
 import React from "react";
 
-const EventCreate = ({ event }) => {
+const EventEdit = ({ event }) => {
   return <div>Edit</div>;
 };
 
-export default EventCreate;
+export default EventEdit;
