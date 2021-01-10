@@ -7,11 +7,32 @@ import "react-datetime/css/react-datetime.css";
 const MINUTES = 1;
 const HOURS = 2;
 
+const handleSubmit = (e) => {
+  console.log(e.target[4].value);
+
+  const toSend = {
+    startDateTime: e.target[0].value,
+    endDateTime: e.target[0].value,
+    title: e.target[1].value,
+    description: e.target[2].value,
+    reminder: e.target[3].value,
+    ...(e.target[4].value
+      ? { timeRequired: e.target[6].value }
+      : { difficulty: e.target[6].value }),
+  };
+
+  e.preventDefault();
+  // console.dir(e.target);
+  // console.dir(e.target[0].value);
+  // console.dir(e.target[1].value);
+  // console.dir(e.target[2].value);
+};
+
 const EventCreate = () => {
   const [isTime, setIsTime] = useState(true);
 
   return (
-    <Form className="m-3">
+    <Form className="m-3" onSubmit={handleSubmit}>
       <Form.Group controlId="formDatetime">
         <Form.Label>Date and time</Form.Label>
         <DateTime />
@@ -51,7 +72,7 @@ const EventCreate = () => {
           <Form.Control
             type="radio"
             defaultChecked={true}
-            value={true}
+            // value={true}
             name="isTimeRequired"
             onChange={(e) => setIsTime(true)}
           />
@@ -100,17 +121,6 @@ const EventCreate = () => {
         </>
       ) : (
         <>
-          <Form.Group controlId="formPriority">
-            <Form.Label>Priority</Form.Label>
-            <Form.Control as="select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Form.Control>
-          </Form.Group>
-
           <Form.Group controlId="formDifficulty">
             <Form.Label>Difficulty</Form.Label>
             <Form.Control as="select">

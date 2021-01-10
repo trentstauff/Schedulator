@@ -26,7 +26,6 @@ namespace DataAccess
                               ,[Title]
                               ,[Description]
                               ,[Reminder]
-                              ,[Priority]
                               ,[TimeRequired]
                               ,[Difficulty]
                               ,[CreationDatetime]
@@ -52,7 +51,6 @@ namespace DataAccess
                            ,[Title]
                            ,[Description]
                            ,[Reminder]
-                           ,[Priority]
                            ,[TimeRequired]
                            ,[Difficulty]
                            ,[CreationDatetime]
@@ -66,7 +64,6 @@ namespace DataAccess
                            ,@Title
                            ,@Description
                            ,@Reminder
-                           ,@Priority
                            ,@TimeRequired
                            ,@Difficulty
                            ,@CreationDatetime
@@ -80,7 +77,6 @@ namespace DataAccess
             parameters.Add("@Title", newEvent.Title);
             parameters.Add("@Description", newEvent.Description);
             parameters.Add("@Reminder", newEvent.Reminder);
-            parameters.Add("@Priority", newEvent.Priority);
             parameters.Add("@TimeRequired", newEvent.TimeRequired);
             parameters.Add("@Difficulty", newEvent.Difficulty);
             parameters.Add("@CreationDatetime", newEvent.CreationDatetime);
@@ -97,7 +93,6 @@ namespace DataAccess
                            ,[Title] = @Title
                            ,[Description] = @Description
                            ,[Reminder] = @Reminder
-                           ,[Priority] = @Priority
                            ,[TimeRequired] = @TimeRequired
                            ,[Difficulty] = @Difficulty
                            ,[ModificationDatetime] = @ModificationDatetime
@@ -110,7 +105,6 @@ namespace DataAccess
             parameters.Add("@Title", newEvent.Title);
             parameters.Add("@Description", newEvent.Description);
             parameters.Add("@Reminder", newEvent.Reminder);
-            parameters.Add("@Priority", newEvent.Priority);
             parameters.Add("@TimeRequired", newEvent.TimeRequired);
             parameters.Add("@Difficulty", newEvent.Difficulty);
             parameters.Add("@ModificationDatetime", newEvent.ModificationDatetime);
