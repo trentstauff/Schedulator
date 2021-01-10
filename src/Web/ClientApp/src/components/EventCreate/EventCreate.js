@@ -1,30 +1,44 @@
 import React, { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 import DateTime from "react-datetime";
+import authService from "../../components/api-authorization/AuthorizeService";
+import Axios from "axios";
 
 import "react-datetime/css/react-datetime.css";
 
 const MINUTES = 1;
 const HOURS = 2;
 
-const handleSubmit = (e) => {
-  const toSend = {
-    startDateTime: e.target[0].value,
-    endDateTime: e.target[0].value,
+const convertReminder = (reminderString, startDateTimeString) => {
+  let split = reminderString.split(" ");
+  let value = split[0];
+  let unit = split[1];
+
+  return new Date(
+    Date.parse(startDateTimeString) - value * (unit === "min" ? 1 : 60) * 60000
+  ).toISOString();
+};
+
+const handleSubmit = async (e) => {
+  const createdEvent = {
+    startDateTime: new Date(e.target[0].value).toISOString(),
+    endDateTime: new Date(e.target[0].value).toISOString(),
     title: e.target[1].value,
     description: e.target[2].value,
-    reminder: e.target[3].value,
+    reminder: convertReminder(e.target[3].value, e.target[0].value),
     ...(e.target[4].checked
       ? { timeRequired: (e.target[7].checked ? 1 : 60) * e.target[6].value }
       : { difficulty: e.target[6].value }),
   };
 
-  console.dir(toSend);
-  e.preventDefault();
-  // console.dir(e.target);
-  // console.dir(e.target[0].value);
-  // console.dir(e.target[1].value);
-  // console.dir(e.target[2].value);
+  console.log(createdEvent);
+
+  try {
+    const token = await authService.getAccessToken();
+    const response = await Axios.post("api/events", createdEvent, {
+      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+    });
+  } catch (error) {}
 };
 
 const EventCreate = () => {
