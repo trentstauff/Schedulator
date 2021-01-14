@@ -1,4 +1,4 @@
-# Schedulator : A Study Schedule Generator
+# Schedulator : A Planning Schedule Generator
 
 ## What is Schedulator?
 
@@ -22,6 +22,6 @@ Extremely. Simply enter a new event/deadline into the "Events Widget" on the Cal
 
 Don't worry! Schedulator allows you to edit events as much and as often as you'd like. Whether that's the title, deadline date, or time required, our algorithm will regenerate your schedule upon each request.
 
-## ** Well, what are you waiting for! **
+## Well, what are you waiting for!
 Try out Schedulator today at https://schedulator.me/ and rock on with your newly founded time management skills.
 
